@@ -1,3 +1,7 @@
+<style lang="scss">
+	@import "@/uni_modules/uview-ui/index.scss";
+</style>
+
 <script>
 	export default {
 		onLaunch: function() {
@@ -14,10 +18,4 @@
 
 <style>
 	/*每个页面公共css */
-	page {
-		height: 100%;
-		width: 100%;
-		padding: 0;
-		margin: 0;
-	}
 </style>
