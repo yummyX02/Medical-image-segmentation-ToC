@@ -5,12 +5,16 @@
 		</view>
 		<view class="info">
 			<u-form :model="form" ref="uForm">
-				<u-form-item><u-icon name="phone" color="#2979ff" size="28"></u-icon>
+				<u-form-item prop="phone"><u-icon name="phone" color="#2979ff" size="28"></u-icon>
 					<u-input v-model="form.phone" placeholder="请输入手机号码" class="login-input" /></u-form-item>
-				<u-form-item><u-icon name="lock" color="#2979ff" size="28"></u-icon>
+				<u-form-item prop="password"><u-icon name="lock" color="#2979ff" size="28"></u-icon>
 					<u-input v-model="form.password" placeholder="请输入密码" class="login-input" /></u-form-item>
 				<u-form-item><u-button @click="login" class="login-button">登录</u-button></u-switch></u-form-item>
 			</u-form>
+		</view>
+		<view class="footer">
+			<text class="noneID">没有账号？</text>
+			<text class="register" @click="navigationToRegister">立即注册</text>
 		</view>
 	</view>
 </template>
@@ -22,13 +26,37 @@
 				form: {
 					phone: '',
 					password: '',
+				},
+				rules: {
+					phone: [{
+						required: true,
+						message: '请输入手机号码',
+						trigger: ['blur'],
+					}],
+					password: [{
+						min: 5,
+						message: '密码不能少于5位',
+						trigger: 'change'
+					}]
 				}
 			};
 		},
-		methods:{
-			login(){
+		methods: {
+			login() {
+				console.log(this.form);
+				
 				console.log("开始登录");
+				
+			},
+			navigationToRegister(){
+				console.log("去注册咯");
+				uni.navigateTo({
+					url:'/pages/register/register'
+				})
 			}
+		},
+		onReady() {
+			this.$refs.uForm.setRules(this.rules);
 		}
 	}
 </script>
@@ -47,17 +75,36 @@
 			justify-content: center;
 			align-items: center;
 			margin-top: 60px;
+
 			.login-input {
 				border: none;
 				padding: 10px;
 				border-bottom: 1px solid #f7ecdf;
 			}
-			.login-button{
+
+			.login-button {
 				margin-top: 40px;
 				background-color: #2979ff;
 				color: #fff;
 				text-align: center;
 				border-radius: 20px;
+				font-size: 17px
+			}
+		}
+
+		.footer {
+			margin-top: 30px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 14px;
+
+			.noneID {
+				color: #bec4d6;
+			}
+
+			.register {
+				color: #2979ff;
 			}
 		}
 	}
