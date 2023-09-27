@@ -1,14 +1,16 @@
 <template>
 	<view class="container">
 		<view class="top">
-			<text id="title">注册</text>
-			<text id="tips">请告诉我们，您的手机号码</text>
+			<text id="title">设置密码</text>
+			<text id="tips">请设置您的登录密码</text>
 		</view>
 		<view class="info">
 			<u-form :model="form" ref="uForm">
-				<u-form-item prop="phone"><u-icon name="phone" color="#2979ff" size="28"></u-icon>
-					<u-input v-model="form.phone" placeholder="请输入手机号码" class="login-input" /></u-form-item>
-				<u-form-item><u-button @click="send" class="login-button">下一步</u-button></u-switch></u-form-item>
+				<u-form-item prop="password"><u-icon name="lock" color="#2979ff" size="28"></u-icon>
+					<u-input v-model="form.password" placeholder="请输入密码" class="login-input" /></u-form-item>
+				<u-form-item prop="password"><u-icon name="lock" color="#2979ff" size="28"></u-icon>
+					<u-input v-model="form.rePassword" placeholder="请再次输入密码" class="login-input" /></u-form-item>
+				<u-form-item><u-button @click="register" class="login-button">完成注册</u-button></u-switch></u-form-item>
 			</u-form>
 		</view>
 	</view>
@@ -19,22 +21,26 @@
 		data() {
 			return {
 				form: {
-					phone: '',
+					password: '',
+					rePassword: ''
 				},
 				rules: {
-					phone: [{
+					password: [{
 						required: true,
-						message: '请输入手机号码',
+						message: '请输入密码',
 						trigger: ['blur'],
 					}],
+					rePassword: [{
+						required: true,
+						message: '请再次输入密码',
+						trigger: ['blur'],
+					}]
 				}
-			};
+			}
 		},
 		methods: {
-			send() {
-				console.log("发送验证码",this.form.phone);
-				// 向下一个页面发送消息
-				uni.$emit("sendPhone",this.form.phone)
+			register() {
+				
 			}
 		},
 		onReady() {
@@ -42,6 +48,7 @@
 		}
 	}
 </script>
+
 
 <style lang="less" scoped>
 	.container {
@@ -54,7 +61,7 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: left;
-			width: 70vw;
+			width: 75vw;
 
 			#title {
 				font-size: 30px;
@@ -70,14 +77,13 @@
 
 		.info {
 			margin-top: 30px;
-			width: 70vw;
-
+			width: 75vw;
 			.login-input {
 				border: none;
 				padding: 10px;
 				border-bottom: 1px solid #f7ecdf;
 			}
-
+			
 			.login-button {
 				margin-top: 40px;
 				background-color: #2979ff;
