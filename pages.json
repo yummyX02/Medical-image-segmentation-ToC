@@ -1,62 +1,133 @@
 {
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			"^uni-(.*)": "uview-ui/components/uni-$1.vue", // 匹配components目录内的vue文件
+			"^vue-file-(.*)": "uview-ui/components/uni-$1.vue" // 匹配node_modules内的vue文件
+		}
+		// "^u-(.*)": "/uview-ui/components/u-$1/u-$1.vue"
+	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/index/init",
 			"style": {
-						"navigationBarTitleText": "入口页"
-					}
+				"navigationBarTitleText": "入口页"
+			}
 
-		}, 
+		},
 		{
 			"path": "pages/index/guide",
 			"style": {
-						"navigationBarTitleText": "引导页",
-						"titleNView": false,
-						"app-plus": {
-							"bounce": "none"
-						}
-					}
+				"navigationBarTitleText": "引导页",
+				"titleNView": false,
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
 
 		}, {
 			"path": "pages/index/home",
 			"style": {
-						"navigationBarTitleText": "首页",
-						"navigationBarTextStyle": "black"
-					}
+				"navigationBarTitleText": "首页",
+				"titleNView": false,
+				"navigationBarTextStyle": "black"
+			}
+
+		}, {
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/register/register",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/register/verification",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/register/setPassword",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/report/report",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/platform/platform",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/personal/personal",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
 
 		}
-	    ,{
-            "path" : "pages/login/login",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/register/register",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-        },{
-            "path" : "pages/register/verification",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-        },{
-            "path" : "pages/register/setPassword",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-        }
-    ],
+
+		, {
+			"path": "pages/message/message",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/hospitalList/hospitalList",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"app-plus": {
+					"titleNView":false
+					// "navigationBarHidden": true  // 禁用导航栏
+				}
+			}
+
+		}
+	],
+	"tabBar": {
+		"color": "#b2ada1", // tab 上的文字默认颜色
+		"selectedColor": "#0379ff", // tab 上的文字选中时的颜色
+		"borderStyle": "#fff", // tabbar 上边框的颜色，可选值 black/white
+		"backgroundColor": "#ffffff", // tab 的背景色
+		"list": [{ // 最少2个、最多5个 tab
+			"pagePath": "pages/index/home", // 页面路径，必须在 pages 中先定义
+			"iconPath": "static/icon-home-no.png", // 选中时的图片路径
+			"selectedIconPath": "static/icon-home.png",
+			"text": "首页" // tab 上按钮文字
+		}, {
+			"pagePath": "pages/report/report",
+			"iconPath": "static/icon-report-no.png",
+			"selectedIconPath": "static/icon-report.png",
+			"text": "报告"
+		}, {
+			"pagePath": "pages/platform/platform",
+			"iconPath": "static/icon-hospital-no.png",
+			"selectedIconPath": "static/icon-hospital.png",
+			"text": "医说"
+		}, {
+			"pagePath": "pages/personal/personal",
+			"iconPath": "static/icon-me-no.png",
+			"selectedIconPath": "static/icon-me.png",
+			"text": "我的"
+		}]
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

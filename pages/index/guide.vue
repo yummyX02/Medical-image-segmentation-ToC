@@ -37,7 +37,8 @@
 				this.tabIndex = e.detail.current;
 			},
 			skipGuide() {
-				uni.navigateTo({
+				console.log("可以跳转");
+				uni.switchTab({
 					url: '/pages/index/home'
 				})
 			},
