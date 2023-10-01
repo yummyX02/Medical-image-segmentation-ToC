@@ -1,12 +1,4 @@
 {
-	"easycom": {
-		"autoscan": true,
-		"custom": {
-			"^uni-(.*)": "uview-ui/components/uni-$1.vue", // 匹配components目录内的vue文件
-			"^vue-file-(.*)": "uview-ui/components/uni-$1.vue" // 匹配node_modules内的vue文件
-		}
-		// "^u-(.*)": "/uview-ui/components/u-$1/u-$1.vue"
-	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/index/init",
@@ -76,7 +68,11 @@
 			"path": "pages/personal/personal",
 			"style": {
 				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
+				"enablePullDownRefresh": false,
+				"app-plus": {
+					"titleNView":false
+					// "navigationBarHidden": true  // 禁用导航栏
+				}
 			}
 
 		}
@@ -100,7 +96,88 @@
 			}
 
 		}
-	],
+	    ,{
+            "path" : "pages/filter/filter",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/office/office",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "科室选择",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/selCity/selCity",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "切换城市",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/yuyue/yuyue",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的预约",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/zixun/zixun",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的咨询",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/patientManage/patientManage",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "就诊人管理",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/settinfs/settinfs",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "设置",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/xiugaiPatient/xiugaiPatient",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/addPatient/addPatient",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"tabBar": {
 		"color": "#b2ada1", // tab 上的文字默认颜色
 		"selectedColor": "#0379ff", // tab 上的文字选中时的颜色

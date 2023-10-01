@@ -7,12 +7,13 @@
 		<view class="info">
 			<u-form :model="form" ref="uForm">
 				<u-form-item prop="code" class="myForm">
-					<u-input class="myinput" v-model="form.code[0]" type="number" maxlength="1" />
+					<u-code-input v-model="value" mode="line" @finish="finish" :focus="true"></u-code-input>
+					<!-- <u-input class="myinput" v-model="form.code[0]" type="number" maxlength="1" />
 					<u-input class="myinput" v-model="form.code[1]" type="number" maxlength="1" />
 					<u-input class="myinput" v-model="form.code[2]" type="number" maxlength="1" />
 					<u-input class="myinput" v-model="form.code[3]" type="number" maxlength="1" />
 					<u-input class="myinput" v-model="form.code[4]" type="number" maxlength="1" />
-					<u-input class="myinput" v-model="form.code[5]" type="number" maxlength="1" />
+					<u-input class="myinput" v-model="form.code[5]" type="number" maxlength="1" /> -->
 				</u-form-item>
 				<u-form-item><text class="resend" @click="resent">重新发送</text></u-form-item>
 				<u-form-item><u-button @click="send" class="login-button">下一步</u-button></u-switch></u-form-item>
@@ -26,9 +27,10 @@
 		data() {
 			return {
 				phone: '',
-				form: {
-					code: ['','','','','',''],
-				},
+				value:'',
+				// form: {
+				// 	code: ['', '', '', '', '', ''],
+				// },
 				rules: {
 					code: [{
 						required: true,
@@ -38,10 +40,16 @@
 				}
 			}
 		},
-		methods:{
-			resent(){
+		methods: {
+			resent() {
 				// 同登录
-			}
+			},
+			change(e) {
+				console.log('内容改变，当前值为：' + e);
+			},
+			finish(e) {
+				console.log('输入结束，当前值为：' + e);
+			},
 		},
 		onLoad() {
 			uni.$on("sendPhone", function(data) {
@@ -108,7 +116,8 @@
 				width: 100%;
 				/* 调整按钮的宽度 */
 			}
-			.resend{
+
+			.resend {
 				color: #ffab10;
 			}
 

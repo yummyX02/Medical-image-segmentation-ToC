@@ -258,7 +258,7 @@
 
 <style lang="less" scoped>
 	.container {
-		background-color: #fdfdff;
+		background-color: #f6f7ff;
 		height: 100vh;
 
 		.myswiper {
