@@ -80,7 +80,7 @@
 		, {
 			"path": "pages/message/message",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "我的消息",
 				"enablePullDownRefresh": false
 			}
 

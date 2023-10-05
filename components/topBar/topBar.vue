@@ -43,7 +43,7 @@
 	.box {
 		display: flex;
 		flex-direction: row;
-		margin: 45px 5px 10px 5px;
+		margin: 30px 5px 10px 5px;
 		justify-content: space-evenly;
 		align-items: center;
 		padding: 5px;

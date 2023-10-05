@@ -125,6 +125,11 @@
 					url:"/pages/patientManage/patientManage"
 				})
 			},
+			goToSettings(){
+				uni.navigateTo({
+					url:'/pages/settinfs/settinfs'
+				})
+			}
 		},
 	};
 </script>

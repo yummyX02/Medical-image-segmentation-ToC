@@ -13,9 +13,8 @@
 			<u--input class="ipt" placeholder="手机号码" v-model="value3" border="bottom" clearable></u--input>
 			<u--input class="ipt" placeholder="验证码" v-model="value4" border="bottom" clearable></u--input>
 		</view>
-		<view class="footer">
-			
-			<button>确认</button>
+		<view class="footer" style="width: 90vw;">
+			<button style="width: 70vw;">确认</button>
 		</view>
 	</view>
 </template>

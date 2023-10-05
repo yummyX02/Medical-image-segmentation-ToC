@@ -7,27 +7,20 @@
 					<view class="top">
 						<view class="btn">
 							<text class="consult" style="font-size: 14px; ">{{item.patient}}<text
-									style="margin-left: 5px;">{{item.sex}}</text></text></text>
+									style="margin-left: 5px;">{{item.sex}}</text><text
+									style="margin-left: 5px;">{{item.age}}</text></text></text>
 						</view>
 						<view class="right">
-							<u-icon name="edit-pen-fill" size="28" @click="navigatoXiugai(index)"></u-icon>
+							<button class="smallOrder" @click="navigato">咨询中</button>
 						</view>
 					</view>
 					<view class="mid">
-						<text style="color: darkgray; font-size:14px;">身份证：</text>
-						<text class="hospital">{{item.grade}}<text class="office">{{item.identify}}</text></text>
-					</view>
-					<view class="mid">
-						<text style="color: darkgray; font-size:14px;">手机号码：</text>
-						<text class="hospital">{{item.grade}}<text class="office">{{item.phone}}</text></text>
+							<text style="color: darkgray;font-size: 14px;">咨询医生：</text>
+							<text class="hospital">{{item.grade}}<text class="office">{{item.hospital}}</text></text>
 					</view>
 
 				</view>
 			</scroll-view>
-		</view>
-		<view class="footer">
-			<text>您还能添加<text class="special">{{number}}</text>名就诊人</text>
-			<button @click="navigatoAdd">添加就诊人</button>
 		</view>
 	</view>
 </template>
@@ -38,59 +31,31 @@
 			return {
 				yuyueList: [{
 						id: 1,
-						identify: "360302********1234",
-						phone: "15812345678",
+						identify: "主任医师",
+						hospital: "天津中医药大学一附属医院 ",
+						grade: "主任医师",
 						patient: "张女士",
 						sex: "男",
 						age: "30岁"
 					},
 					{
 						id: 2,
-						identify: "360302********1234",
-						phone: "15812345678",
+						grade: "主任医师",
+						hospital: "天津中医药大学一附属医院 ",
 						patient: "张女士",
 						sex: "男",
 						age: "30岁"
 					},
 					{
 						id: 3,
-						identify: "360302********1234",
-						phone: "15812345678",
+						grade: "主任医师",
+						hospital: "天津中医药大学一附属医院 ",
 						patient: "张女士",
 						sex: "男",
 						age: "30岁"
 					}
-				],
-				number: 1,
+				]
 			};
-		},
-		mounted() {
-			this.number = this.yuyueList.length;
-		},
-		methods:{
-			navigatoXiugai(index){
-				const info = this.yuyueList[index];
-				uni.navigateTo({
-					url:"/pages/xiugaiPatient/xiugaiPatient",
-					success: res => {
-						uni.setStorage({
-							key: 'patientInfo',
-							data: info,
-							success: function () {
-								console.log('success',info);
-							}
-						});
-					},
-				})
-			},
-			navigatoAdd(){
-				uni.navigateTo({
-					url: '/pages/addPatient/addPatient',
-					success: res => {},
-					fail: () => {},
-					complete: () => {}
-				});
-			}
 		}
 	}
 </script>
@@ -98,11 +63,7 @@
 <style lang="less" scoped>
 	.container {
 		background-color: #f7f8ff;
-		height: 90vh;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		/* 垂直方向上平均分布，将顶部和底部内容分开 */
+		height: 100%;
 
 		.newlist {
 			height: 100%;
@@ -130,6 +91,7 @@
 					margin-left: 10px;
 					display: flex;
 					align-items: center;
+					margin-top: 5px;
 
 					h4 {
 						display: flex;
@@ -143,7 +105,6 @@
 					.hospital {
 						display: flex;
 						font-size: 14px;
-						margin-top: 5px;
 
 						.office {
 							margin-left: 5px;
@@ -189,27 +150,5 @@
 			}
 		}
 
-		.footer {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-
-			button {
-				background-color: #0379ff;
-				width: 70%;
-				border-radius: 25px;
-				color: #fff;
-				margin-top: 10px;
-			}
-
-			text {
-				color: darkgray;
-			}
-
-			.special {
-				color: #ffa926;
-			}
-		}
 	}
 </style>
