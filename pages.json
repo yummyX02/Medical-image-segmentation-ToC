@@ -177,6 +177,51 @@
             }
             
         }
+        ,{
+            "path" : "pages/map/map",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/hospitalDetail/hospitalDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "医院详情页",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/internetOrder/internetOrder",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "科室名称",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/doorOrder/doorOrder",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "科室名称",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/chatGPT/chatGPT",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "智能导诊",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"tabBar": {
 		"color": "#b2ada1", // tab 上的文字默认颜色

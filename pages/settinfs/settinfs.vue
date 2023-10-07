@@ -36,7 +36,7 @@
 				</div>
 				<div class="row">
 					<span>隐私</span>
-					<view style="display: flex;"><text>12.9M</text><u-icon name="arrow-right"></u-icon></view>
+					<view style="display: flex;"><u-icon name="arrow-right"></u-icon></view>
 				</div>
 			</view>
 		</view>

@@ -18,7 +18,7 @@
 		<view class="selectBar">
 			<view class="sel">综合排序<u-icon name="arrow-down-fill" size="12"></u-icon>
 			</view>
-				<view @click="open" class="box">科室<u-icon name="arrow-down-fill" size="12"></u-icon>
+				<view @click="navigatoOffice" class="box">科室<u-icon name="arrow-down-fill" size="12"></u-icon>
 			</view>
 			<view @click="navigatoFilter" class="box">筛选<u-icon name="arrow-down-fill" size="12"></u-icon>
 			</view>
@@ -72,7 +72,7 @@
 				listData: [{
 					url: "/static/doctor1.jpg",
 					name: "北京协和医院",
-					location: "背景是东城区东单北大街53号",
+					location: "北京市东城区东单北大街53号",
 					distance: 2.5,
 
 				}]
@@ -85,21 +85,21 @@
 			},
 			navigatoHome() {
 				uni.reLaunch({
-					url: "/pages/index/home"
+					url:'/pages/index/home'
 				})
 			},
 			navigatoFilter() {
-				uni.reLaunch({
+				uni.navigateTo({
 					url: "/pages/filter/filter"
 				})
 			},
 			navigatoOffice() {
-				uni.reLaunch({
+				uni.navigateTo({
 					url: "/pages/office/office"
 				})
 			},
 			navigatoSelCity() {
-				uni.reLaunch({
+				uni.navigateTo({
 					url: "/pages/selCity/selCity"
 				})
 			},
@@ -110,7 +110,20 @@
 			close() {
 				this.show = false
 				// console.log('close');
+			},
+			onClick(){
+				uni.navigateTo({
+					url:'/pages/hospitalDetail/hospitalDetail'
+				})
 			}
+		},
+		onShow() {
+			uni.getStorage({
+				key:'city',
+				success(res) {
+					this.city = res.data;
+				}
+			})
 		}
 	}
 </script>
@@ -128,6 +141,7 @@
 			box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 			border-radius: 8px;
 			margin-bottom: 5px;
+			margin-top: 30px;
 
 			.right {
 				display: flex;
@@ -231,11 +245,12 @@
 		.card-subtitle {
 			color: #555;
 			font-size: 14px;
-			margin-left: 60px;
+			margin-left: 5px;
 		}
 
 		.card-text {
-			margin-left: 10px;
+			margin-left: 5px;
+			font-size: 14px;
 			/* 增加一些间距 */
 		}
 

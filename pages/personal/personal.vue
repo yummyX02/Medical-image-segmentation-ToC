@@ -29,14 +29,14 @@
 				<view class="jiuzhen">
 					<image class="myimg" src="../../static/ic-yijiuzhen.png" mode=""></image>
 					<view class="badge">
-						<text class="badge-text">7</text>
+						<text class="badge-text">1</text>
 					</view>
 					<text>已就诊</text>
 				</view>
 				<view class="jiuzhen">
 					<image class="myimg" src="../../static/icon-lishi.png" mode=""></image>
 					<view class="badge">
-						<text class="badge-text">7</text>
+						<text class="badge-text">1</text>
 					</view>
 					<text>历史</text>
 				</view>
@@ -59,7 +59,7 @@
 					</u-cell>
 				</u-list-item>
 				<u-list-item>
-					<u-cell title="我的收藏">
+					<u-cell title="我的消息" @click="navigatetoMes">
 						<u-avatar slot="icon" shape="square" size="35" src="../../static/icon-wodeshoucang.png"
 							customStyle="margin: -3px 5px -3px 0"></u-avatar>
 					</u-cell>
@@ -91,6 +91,9 @@
 			},
 			openCustomerService() {
 				// 打开客服界面
+				uni.navigateTo({
+					url:'/pages/chatGPT/chatGPT'
+				})
 			},
 			manageInfo() {
 				// 管理信息操作
@@ -103,9 +106,6 @@
 			},
 			viewConsultations() {
 				// 查看咨询信息
-			},
-			viewFavorites() {
-				// 查看收藏内容
 			},
 			openHelpCenter() {
 				// 打开帮助中心
@@ -128,6 +128,11 @@
 			goToSettings(){
 				uni.navigateTo({
 					url:'/pages/settinfs/settinfs'
+				})
+			},
+			navigatetoMes(){
+				uni.navigateTo({
+					url: '/pages/message/message'
 				})
 			}
 		},

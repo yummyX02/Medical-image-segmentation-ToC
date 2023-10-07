@@ -1,6 +1,7 @@
 <template>
 	<view class="container">
 		<topBar></topBar>
+
 		<div class="myswiper">
 			<swiper class="swiper" :indicator-dots="true">
 				<swiper-item class="item" v-for="(item, index) in list" :key="index">
@@ -9,7 +10,7 @@
 			</swiper>
 		</div>
 		<div class="guider">
-			<div class="order"  @click="navigatoHosList">
+			<div class="order" @click="navigatoHosList">
 				<div class="left">
 					<h2>预约挂号</h2>
 					<h5>全国<h4 class="number">400+</h4>家医院</h5>
@@ -22,7 +23,7 @@
 					<image src="../../static/icon-enter.png" class="enterImg"></image>
 				</div>
 			</div>
-			<div class="inquiry"  @click="navigatoConslt">
+			<div class="inquiry" @click="navigatoConslt">
 				<div class="left">
 					<h2>在线问诊</h2>
 					<h5>知名专家，<h4 class="minute">5分钟</h4>回复</h5>
@@ -243,15 +244,20 @@
 				// 轮播图切换时更新currentIndex
 				this.currentIndex = e.detail.current;
 			},
-			navigatoHosList(){
+			navigatoHosList() {
 				console.log("前往预约挂号");
 				uni.reLaunch({
-					url:"/pages/hospitalList/hospitalList"
+					url: "/pages/hospitalList/hospitalList"
 				})
 			},
-			navigatoConslt(){
+			navigatoConslt() {
 				console.log("前往在线问诊");
+			},
+			open() {
+				// 通过组件定义的ref调用uni-popup方法 ,如果传入参数 ，type 属性将失效 ，仅支持 ['top','left','bottom','right','center']
+				this.$refs.popup.open('center')
 			}
+
 		}
 	}
 </script>

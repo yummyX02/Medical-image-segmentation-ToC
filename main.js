@@ -6,6 +6,7 @@ import './uni.promisify.adaptor'
 
 import uView from '@/uni_modules/uview-ui'
 Vue.use(uView)
+// 高德地图	
 
 
 Vue.config.productionTip = false

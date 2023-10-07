@@ -1,6 +1,6 @@
 <template>
 	<view class="box">
-		<div class="left">
+		<div class="left" @click="open">
 			<image src="../../static/icon-location.png" mode="" class="locationImg"></image>
 			<text>{{city}}</text>
 		</div>
@@ -20,12 +20,13 @@
 			return {
 				city: "天津",
 				searchInfo: '',
+
 			}
 		},
 		methods: {
 			navigateToMessage() {
 				uni.navigateTo({
-					url: '/pages/message/message'
+					url: '/pages/chatGPT/chatGPT'
 				})
 			},
 			search() {
@@ -34,12 +35,35 @@
 			},
 			onEnter() {
 				this.search();
-			}
-		}
+			},
+			open() {
+				uni.navigateTo({
+					url: '/pages/map/map'
+				})
+			},
+			onUnload() {
+				// 在页面渲染之前获取localStorage的值并更新city
+				uni.getStorage({
+					key: 'location',
+					success: function (res) {
+						console.log(res.data);
+						if (location) {
+							this.city = location;
+						}
+					}
+				});
+
+			},
+		},
 	}
 </script>
 
 <style lang="less" scoped>
+	.map-container {
+		width: 100%;
+		height: 80vh;
+	}
+
 	.box {
 		display: flex;
 		flex-direction: row;
@@ -56,8 +80,8 @@
 			align-items: center;
 
 			.locationImg {
-				width: 30px;
-				height: 30px;
+				width: 40px;
+				height: 40px;
 				margin-right: 5px;
 			}
 
