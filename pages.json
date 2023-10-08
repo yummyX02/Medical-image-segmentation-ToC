@@ -222,6 +222,24 @@
             }
             
         }
+        ,{
+            "path" : "pages/internetDoctor/internetDoctor",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "预约信息",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/doorDoctor/doorDoctor",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "预约信息",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"tabBar": {
 		"color": "#b2ada1", // tab 上的文字默认颜色

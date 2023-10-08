@@ -86,9 +86,6 @@
 			};
 		},
 		methods: {
-			goToSettings() {
-				// 导航到设置页面
-			},
 			openCustomerService() {
 				// 打开客服界面
 				uni.navigateTo({

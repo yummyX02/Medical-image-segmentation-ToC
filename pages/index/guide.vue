@@ -37,11 +37,32 @@
 				this.tabIndex = e.detail.current;
 			},
 			skipGuide() {
-				console.log("可以跳转");
-				uni.switchTab({
-					url: '/pages/index/home'
+				let token = "";
+				uni.getStorage({
+					key: "access_token",
+					success: function(res) {
+						console.log("请求成功", res);
+						token = res.data;
+					},
+					fail: function(err) {
+						console.log(err);
+						token = err.data;
+					}
 				})
+				if (token) {
+					console.log("可以跳转");
+					uni.switchTab({
+						url: '/pages/index/home'
+					})
+				} else {
+					uni.reLaunch({
+						url: '/pages/login/login',
+					});
+				}
 			},
+		},
+		onLoad() {
+			console.log("onLoad");
 		}
 	}
 </script>
