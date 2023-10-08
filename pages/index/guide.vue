@@ -49,16 +49,16 @@
 						token = err.data;
 					}
 				})
-				if (token) {
+				// if (token) {
 					console.log("可以跳转");
 					uni.switchTab({
 						url: '/pages/index/home'
 					})
-				} else {
-					uni.reLaunch({
-						url: '/pages/login/login',
-					});
-				}
+				// } else {
+				// 	uni.reLaunch({
+				// 		url: '/pages/login/login',
+				// 	});
+				// }
 			},
 		},
 		onLoad() {
