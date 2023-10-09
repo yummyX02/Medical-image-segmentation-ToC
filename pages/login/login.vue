@@ -38,14 +38,37 @@
 						message: '密码不能少于5位',
 						trigger: 'change'
 					}]
-				}
+				},
+				token:'',
 			};
 		},
 		methods: {
 			login() {
 				console.log(this.form);
+					uni.request({
+						url:'http://localhost:5000/patient_login',
+						method:'POST',
+						data:{
+							phone:this.form.phone,
+							password:this.form.password,
+						},
+						header:{
+							'token':''
+						},
+						success:(res) =>{
+							console.log('resdata'+res.data.message);
+							console.log('前端接收到的用户是'+res.data.username)
+							
+							if(res.data.status == 'success'){
+								uni.setStorageSync('access_token',res.data.token)
+								uni.setStorageSync('username',res.data.username)
+								uni.switchTab({
+									url:'/pages/index/home'
+								})
+							}
+						}
+						})
 				
-				console.log("开始登录");
 				
 			},
 			navigationToRegister(){
