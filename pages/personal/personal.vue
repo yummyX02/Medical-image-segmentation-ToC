@@ -6,7 +6,7 @@
 				<image class="avatar" :src="user.headUrl" alt="User Avatar" />
 				<!-- 管理信息按钮 -->
 				<div class="manage-info">
-					<p class="phone-number">{{ user.phoneNumber }}</p>
+					<p class="phone-number">{{ user.phoneNumber}}</p>
 					<u-button text="管理信息" class="mybn"></u-button>
 				</div>
 			</div>
@@ -80,10 +80,16 @@
 		data() {
 			return {
 				user: {
-					headUrl: "/static/icon-me-no.png",
-					phoneNumber: "123-456-7890",
-				}
+						headUrl: "/static/icon-me-no.png",
+						phoneNumber: "",
+						}
 			};
+		},
+		onLoad() {
+			//加载个人信息
+			this.user.phoneNumber = uni.getStorageSync("phone")
+			console.log("zheli"+this.user)
+			console.log("zheer"+this.user.phoneNumber)
 		},
 		methods: {
 			openCustomerService() {
