@@ -10,32 +10,33 @@
 		},
 		onLoad() {
 			// 从本地缓存中同步获取指定 key 对应的内容，用于判断是否是第一次打开应用
-			let value = '';
+			let value = false;
 			let token = '';
 			uni.getStorage({
 				key:'launchFlag',
 				success:function(res){
 					value = res.data;
+					console.log(res.data);
 				}	,
 				fail:function(err){
 					value = err.data;
 				}
 			})
 			uni.getStorage({
-				key:"access_token",
-				success: function (res) {
-						console.log("请求成功",res);
-					 token = res.data;
-					},
-				fail:function(err){
+				key: "access_token",
+				success: function(res) {
+					console.log("请求成功", res);
+					token = res.data;
+				},
+				fail: function(err) {
 					console.log(err);
-					 token = err.data;
+					token = err.data;
 				}
 			})
 			if (value) {
 				console.log("不是第一次进入app");
 				if (token) { //有token
-				console.log("有token");
+					console.log("有token");
 					setTimeout(function() {
 						uni.switchTab({
 							url: '/pages/index/home',
@@ -59,7 +60,7 @@
 				uni.redirectTo({
 					url: '/pages/index/guide',
 					success: (res) => {
-						console.log("跳转引导页",res);
+						console.log("跳转引导页", res);
 					}
 				});
 			}

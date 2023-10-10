@@ -55,11 +55,12 @@
 				
 				if(token){
 					uni.switchTab({
-						url:'/pages/login/login'
+						url: '/pages/index/home'
 					})
+					
 				}else{
-						uni.switchTab({
-							url: '/pages/index/home'
+						uni.navigateTo({
+							url:'/pages/login/login'
 						})
 				}
 				
