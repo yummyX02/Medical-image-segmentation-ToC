@@ -29,7 +29,8 @@
 						name: '报告分析',
 						src: "../../static/swiper-search.png"
 					},
-				]
+				],
+				token:'',
 			}
 		},
 		methods: {
@@ -37,32 +38,32 @@
 				this.tabIndex = e.detail.current;
 			},
 			skipGuide() {
-				let token = "";
+				console.log("可以跳转");
+				//判断token
+				
 				uni.getStorage({
-					key: "access_token",
-					success: function(res) {
-						console.log("请求成功", res);
-						token = res.data;
-					},
-					fail: function(err) {
-						console.log(err);
-						token = err.data;
-					}
-				})
-				// if (token) {
-					console.log("可以跳转");
+								key:"access_token",
+								success: function (res) {
+										console.log("请求成功",res);
+									 token = res.data;
+									},
+								fail:function(err){
+									console.log(err);
+									 token = err.data;
+								}
+							})
+				
+				if(token){
 					uni.switchTab({
-						url: '/pages/index/home'
+						url:'/pages/login/login'
 					})
-				// } else {
-				// 	uni.reLaunch({
-				// 		url: '/pages/login/login',
-				// 	});
-				// }
+				}else{
+						uni.switchTab({
+							url: '/pages/index/home'
+						})
+				}
+				
 			},
-		},
-		onLoad() {
-			console.log("onLoad");
 		}
 	}
 </script>
