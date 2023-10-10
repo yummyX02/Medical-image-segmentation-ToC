@@ -5,9 +5,12 @@
 	export default {
 		data() {
 			return {
-
+				token:'',
+				value:'',
 			}
 		},
+		
+
 		onLoad() {
 			// 从本地缓存中同步获取指定 key 对应的内容，用于判断是否是第一次打开应用
 			let value = false;
@@ -65,6 +68,7 @@
 				});
 			}
 		}
+
 	}
 </script>
 
