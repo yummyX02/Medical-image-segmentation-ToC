@@ -60,8 +60,11 @@
 							console.log('前端接收到的用户是'+res.data.username)
 							
 							if(res.data.status == 'success'){
+								
+								//存
 								uni.setStorageSync('access_token',res.data.token)
 								uni.setStorageSync('username',res.data.username)
+								uni.setStorageSync('phone',this.form.phone)
 								uni.switchTab({
 									url:'/pages/index/home'
 								})

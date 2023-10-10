@@ -67,6 +67,7 @@
 				<button @click="toggleButtonStyle" :class="{ 'blue-background': isBlue }">是</button>
 				<button @click="toggleButtonStyle" :class="{ 'blue-background': !isBlue }">否</button>
 				<input type="number" placeholder="医保卡号" v-model="card">
+				<button>确认就诊</button>
 			</view>
 			<text>就诊人手机：{{phone}}</text>
 		</view>

@@ -4,13 +4,13 @@
 		<view class="top">
 			<h3  class="title">CT图像</h3>
 			<view class="card">
-				暂无
+				<u-image src="../../static/1.png" alt="医学分割图像" />
 			</view>
 		</view>
 		<view class="mid">
 			<h3  class="title">医生建议</h3>
 			<view class="card">
-				暂无
+				<p>{{ this.text }}</p>
 			</view>
 		</view>
 		
@@ -25,8 +25,48 @@
 	export default {
 		data() {
 			return {
-				
+				seg_url:'',
+				username:'',
+				text:'',
 			};
+		},
+		onLoad() {
+			this.username = uni.getStorageSync("username");
+			uni.request({
+				url:'http://localhost:5000/checkoutseg',
+				method:'POST',
+				responseType:'blob',
+				data:{
+					username:this.username,
+				},
+				 success: (res) => {
+				 	if(res.data.status == 'fail'){
+						console.log(res.data.message)
+					}else{
+						let blob = new Blob([res.data], { type: res.data.type});
+						console.log(blob)
+						this.seg_url = URL.createObjectURL(blob)
+						console.log(this.seg_url)
+					}
+				 }
+			});
+			uni.request(
+			{
+				url:'http://localhost:5000/getdesc',
+				method:'POST',
+				data:{
+					username:this.username,
+				},
+				success:(res) => {
+					if(res.data.status == 'fail'){
+						console.log(res.data.message)
+					}else{
+						console.log(res.data.message)
+						this.text = res.data.desc
+						console.log('得到的描述'+this.desc)
+					}
+				}
+			})
 		}
 	}
 </script>
