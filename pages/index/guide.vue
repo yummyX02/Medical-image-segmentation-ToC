@@ -38,9 +38,9 @@
 				this.tabIndex = e.detail.current;
 			},
 			skipGuide() {
-				console.log("可以跳转");
+				console.log("想要跳转");
 				//判断token
-				
+				let token = '';
 				uni.getStorage({
 								key:"access_token",
 								success: function (res) {
