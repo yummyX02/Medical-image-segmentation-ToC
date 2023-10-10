@@ -240,6 +240,32 @@
             }
             
         }
+        ,{
+            "path" : "pages/doorSuccess/doorSuccess",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"app-plus": {
+					"titleNView":false
+					// "navigationBarHidden": true  // 禁用导航栏
+				}
+            }
+            
+        }
+        ,{
+            "path" : "pages/internetSuccess/internetSuccess",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"app-plus": {
+					"titleNView":false
+					// "navigationBarHidden": true  // 禁用导航栏
+				}
+            }
+            
+        }
     ],
 	"tabBar": {
 		"color": "#b2ada1", // tab 上的文字默认颜色
