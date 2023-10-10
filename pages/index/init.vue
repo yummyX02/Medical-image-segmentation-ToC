@@ -13,13 +13,13 @@
 
 		onLoad() {
 			// 从本地缓存中同步获取指定 key 对应的内容，用于判断是否是第一次打开应用
-			let value = false;
+			let value = '';
 			let token = '';
 			uni.getStorage({
 				key:'launchFlag',
 				success:function(res){
 					value = res.data;
-					console.log(res.data);
+					console.log("获取",res.data);
 				}	,
 				fail:function(err){
 					value = err.data;
@@ -37,7 +37,7 @@
 				}
 			})
 			if (value) {
-				console.log("不是第一次进入app");
+				console.log("不是第一次进入app",value);
 				if (token) { //有token
 					console.log("有token");
 					setTimeout(function() {

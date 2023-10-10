@@ -30,7 +30,7 @@
 						src: "../../static/swiper-search.png"
 					},
 				],
-				token:'',
+				token: '',
 			}
 		},
 		methods: {
@@ -42,28 +42,28 @@
 				//判断token
 				let token = '';
 				uni.getStorage({
-								key:"access_token",
-								success: function (res) {
-										console.log("请求成功",res);
-									 token = res.data;
-									},
-								fail:function(err){
-									console.log(err);
-									 token = err.data;
-								}
-							})
-				
-				if(token){
+					key: "access_token",
+					success: function(res) {
+						console.log("请求成功", res);
+						token = res.data;
+					},
+					fail: function(err) {
+						console.log(err);
+						token = err.data;
+					}
+				})
+
+				if (token) {
 					uni.switchTab({
 						url: '/pages/index/home'
 					})
-					
-				}else{
-						uni.navigateTo({
-							url:'/pages/login/login'
-						})
+
+				} else {
+					uni.navigateTo({
+						url: '/pages/login/login'
+					})
 				}
-				
+
 			},
 		}
 	}

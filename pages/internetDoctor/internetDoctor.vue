@@ -72,6 +72,7 @@
 			</view>
 			<text>就诊人手机：{{phone}}</text>
 		</view>
+		<button style="background-color: #0379ff;width: 400px;border-radius: 15px;color: aliceblue;" @click="submit">提交预约</button>
 	</view>
 </template>
 
@@ -119,6 +120,9 @@
 				// 切换选中状态
 				this.selectedPatientIndex = this.selectedPatientIndex === index ? -1 : index;
 			},
+			submit(){
+				//预约提交
+			}
 		}
 	}
 </script>
