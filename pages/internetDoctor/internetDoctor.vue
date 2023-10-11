@@ -1,5 +1,6 @@
 <template>
 	<view class="container">
+		<uni-popup ref="popup" type="bottom">预约成功</uni-popup>
 		<view class="card-top">
 			<view class="doctor">
 				<view class="info-top">
@@ -121,8 +122,25 @@
 				this.selectedPatientIndex = this.selectedPatientIndex === index ? -1 : index;
 			},
 			submit(){
+				this.$refs.popup.open('top')
 				//预约提交
-			}
+				try{
+					axios.post('http://localhost:5000/reserve')
+					.then(
+						res =>{
+							if(res.data.status == 'fail'){
+								console.log('预约信息'+res.data.message)
+							}else{
+								console.log(res.data.message)
+								
+							}
+							
+						}
+					)
+				}catch(error){
+					console.log(error)
+				}
+			},
 		}
 	}
 </script>

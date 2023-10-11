@@ -141,48 +141,48 @@
 					[{
 							id: 1,
 							headUrl: '/static/doctor1.jpg',
-							name: "王医生",
+							name: "王法医生",
 							identify: "主任医师",
 							hospital: "天津中医药大学一附属医院 ",
-							office: "心血管科",
-							advantage: "擅长：心血管疾病、心脏病、冠心病",
+							office: "内科",
+							advantage: "擅长：内分泌疾病",
 
 						},
 						{
 							id: 2,
-							headUrl: '/static/doctor1.jpg',
-							name: "王医生",
+							headUrl: '/static/doctor2.png',
+							name: "毕单医生",
 							identify: "主任医师",
 							hospital: "天津中医药大学一附属医院 ",
-							office: "心血管科",
-							advantage: "擅长：心血管疾病、心脏病、冠心病",
+							office: "脑科",
+							advantage: "擅长：脑部疾病",
 
 						},
 						{
 							id: 3,
-							headUrl: '/static/doctor1.jpg',
-							name: "王医生",
-							identify: "主任医师",
+							headUrl: '/static/doctor3.png',
+							name: "常明医生",
+							identify: "副主任医师",
 							hospital: "天津中医药大学一附属医院 ",
 							office: "心血管科",
-							advantage: "擅长：心血管疾病、心脏病、冠心病",
+							advantage: "擅长：心脏病、冠心病",
 
 						}
 					],
 					[{
 							id: 4,
-							headUrl: '/static/doctor1.jpg',
-							name: "王医生",
+							headUrl: '/static/doctor4.png',
+							name: "牛波医生",
 							identify: "主任医师",
 							hospital: "天津中医药大学一附属医院 ",
 							office: "心血管科",
-							advantage: "擅长：心血管疾病、心脏病、冠心病",
+							advantage: "擅长：心血管疾病",
 
 						},
 						{
 							id: 5,
-							headUrl: '/static/doctor1.jpg',
-							name: "王医生",
+							headUrl: '/static/doctor5.png',
+							name: "董真医生",
 							identify: "主任医师",
 							hospital: "天津中医药大学一附属医院 ",
 							office: "心血管科",
@@ -192,8 +192,8 @@
 					],
 					[{
 							id: 6,
-							headUrl: '/static/doctor1.jpg',
-							name: "王医生",
+							headUrl: '/static/doctor6.png',
+							name: "王里医生",
 							identify: "主任医师",
 							hospital: "天津中医药大学一附属医院 ",
 							office: "心血管科",
@@ -202,8 +202,8 @@
 						},
 						{
 							id: 7,
-							headUrl: '/static/doctor1.jpg',
-							name: "王医生",
+							headUrl: '/static/doctor7.png',
+							name: "明阿医生",
 							identify: "主任医师",
 							hospital: "天津中医药大学一附属医院 ",
 							office: "心血管科",
@@ -261,32 +261,35 @@
 		},
 		onLoad() {
 			let token = '';
-			uni.getStorage({
-				key: "access_token",
-				success: function(res) {
-					console.log("请求成功", res);
-					token = res.data;
-				},
-				fail: function(err) {
-					console.log(err);
-					token = err.data;
-				}
-			})
-			if (token) { //有token
-				console.log("有token");
-				setTimeout(function() {
-					uni.switchTab({
-						url: '/pages/index/home',
-					});
-				}, 100)
-			} else {
-				console.log("没有token，即将跳转登录页");
-				setTimeout(function() { //去登录
-					uni.reLaunch({
-						url: '/pages/login/login',
-					});
-				}, 100)
-			}
+			uni.switchTab({
+			 			url: '/pages/index/home',
+			});
+			// uni.getStorage({
+			// 	key: "access_token",
+			// 	success: function(res) {
+			// 		console.log("请求成功", res);
+			// 		token = res.data;
+			// 	},
+			// 	fail: function(err) {
+			// 		console.log(err);
+			// 		token = err.data;
+			// 	}
+			// })
+			// if (token) { //有token
+			// 	console.log("有token");
+			// 	setTimeout(function() {
+			// 		uni.switchTab({
+			// 			url: '/pages/index/home',
+			// 		});
+			// 	}, 100)
+			// } else {
+			// 	console.log("没有token，即将跳转登录页");
+			// 	setTimeout(function() { //去登录
+			// 		uni.reLaunch({
+			// 			url: '/pages/login/login',
+			// 		});
+			// 	}, 100)
+			// }
 		}
 	}
 </script>
