@@ -45,6 +45,9 @@
 					this.info = res.data;
 				},
 			});
+		},
+		methods:{
+			
 		}
 	}
 </script>
