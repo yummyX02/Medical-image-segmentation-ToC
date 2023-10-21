@@ -8,8 +8,8 @@
 				<u-form-item prop="phone"><u-icon name="phone" color="#2979ff" size="28"></u-icon>
 					<u-input v-model="form.phone" placeholder="请输入手机号码" class="login-input" /></u-form-item>
 				<u-form-item prop="password"><u-icon name="lock" color="#2979ff" size="28"></u-icon>
-					<u-input v-model="form.password" placeholder="请输入密码" class="login-input" /></u-form-item>
-				<u-form-item><u-button @click="login" class="login-button">登录</u-button></u-switch></u-form-item>
+					<u-input password type="text" v-model="form.password" placeholder="请输入密码" class="login-input" /></u-form-item>
+				<u-form-item><u-button @click="login" class="login-button">登录</u-button></u-form-item>
 			</u-form>
 		</view>
 		<view class="footer">
@@ -46,7 +46,7 @@
 			login() {
 				console.log(this.form);
 					uni.request({
-						url:'http://localhost:5000/patient_login',
+						url:'http://101.42.48.138:5000/patient_login',
 						method:'POST',
 						data:{
 							phone:this.form.phone,
@@ -56,12 +56,13 @@
 							'token':''
 						},
 						success:(res) =>{
+							console.log("进入登录请求....",res);
 							console.log('resdata'+res.data.message);
 							console.log('前端接收到的用户是'+res.data.username)
-							
+							console.log(res.data.status);
 							if(res.data.status == 'success'){
 								uni.setStorage('access_token',res.data.token)
-								uni.setStorage('username',res.data.username)
+								// uni.setStorage('username',res.data.username)
 								uni.switchTab({
 									url:'/pages/index/home'
 								})

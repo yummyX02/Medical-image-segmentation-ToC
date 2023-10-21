@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="card" @click="onClick">
+		<view class="card">
 			<image :src="item.url" alt="Card Image" class="card-image" mode="aspectFit"></image>
 			<view class="card-content">
 				<text class="card-title">{{item.name}}</text>
@@ -27,7 +27,7 @@
 				<u-icon name="list-dot" color="#2979ff" size="28"></u-icon>
 				<text>门诊挂号</text>
 			</view>
-			<view class="btn" style="background-color: #c7f9eb;">
+			<view class="btn" style="background-color: #c7f9eb;" @click="navigatoChat">
 				<u-icon name="chat" color="#07ff9e" size="28"></u-icon>
 				<text>智能导诊</text>
 			</view>
@@ -79,6 +79,11 @@
 					url:'/pages/doorOrder/doorOrder'
 				})
 			},
+			navigatoChat(){
+				uni.navigateTo({
+					url:'/pages/chatGPT/chatGPT'
+				})
+			}
 		}
 	}
 </script>

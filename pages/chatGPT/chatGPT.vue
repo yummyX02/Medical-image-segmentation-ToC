@@ -1,15 +1,19 @@
 <template>
 	<view>
-		我是智能导诊
+		<web-view src="https://chatnextweb.rockchin.top" update-title="false"></web-view>
+		<u-loading-icon duration="3000" size="36"></u-loading-icon>
+
 	</view>
 </template>
 
 <script>
 	export default {
 		data() {
-			return {
-				
-			};
+
+			return {};
+		},
+		onLoad() {
+			
 		}
 	}
 </script>

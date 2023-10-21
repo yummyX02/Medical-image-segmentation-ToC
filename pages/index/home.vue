@@ -150,22 +150,22 @@
 						},
 						{
 							id: 2,
-							headUrl: '/static/doctor1.jpg',
-							name: "王医生",
+							headUrl: '/static/doctor2.jpg',
+							name: "李医生",
 							identify: "主任医师",
 							hospital: "天津中医药大学一附属医院 ",
-							office: "心血管科",
-							advantage: "擅长：心血管疾病、心脏病、冠心病",
+							office: "肿瘤科",
+							advantage: "擅长：脑瘤",
 
 						},
 						{
 							id: 3,
-							headUrl: '/static/doctor1.jpg',
-							name: "王医生",
+							headUrl: '/static/doctor3.jpg',
+							name: "张医生",
 							identify: "主任医师",
 							hospital: "天津中医药大学一附属医院 ",
-							office: "心血管科",
-							advantage: "擅长：心血管疾病、心脏病、冠心病",
+							office: "消化科",
+							advantage: "擅长：肠胃炎",
 
 						}
 					],
@@ -175,8 +175,8 @@
 							name: "王医生",
 							identify: "主任医师",
 							hospital: "天津中医药大学一附属医院 ",
-							office: "心血管科",
-							advantage: "擅长：心血管疾病、心脏病、冠心病",
+							office: "肿瘤科",
+							advantage: "擅长：脑瘤",
 
 						},
 						{
@@ -259,35 +259,35 @@
 			}
 
 		},
-		onLoad() {
-			let token = '';
-			uni.getStorage({
-				key: "access_token",
-				success: function(res) {
-					console.log("请求成功", res);
-					token = res.data;
-				},
-				fail: function(err) {
-					console.log(err);
-					token = err.data;
-				}
-			})
-			if (token) { //有token
-				console.log("有token");
-				setTimeout(function() {
-					uni.switchTab({
-						url: '/pages/index/home',
-					});
-				}, 100)
-			} else {
-				console.log("没有token，即将跳转登录页");
-				setTimeout(function() { //去登录
-					uni.reLaunch({
-						url: '/pages/login/login',
-					});
-				}, 100)
-			}
-		}
+		// onLoad() {
+		// 	let token = '';
+		// 	uni.getStorage({
+		// 		key: "access_token",
+		// 		success: function(res) {
+		// 			console.log("请求成功", res);
+		// 			token = res.data;
+		// 		},
+		// 		fail: function(err) {
+		// 			console.log(err);
+		// 			token = err.data;
+		// 		}
+		// 	})
+		// 	if (token) { //有token
+		// 		console.log("有token");
+		// 		setTimeout(function() {
+		// 			uni.switchTab({
+		// 				url: '/pages/index/home',
+		// 			});
+		// 		}, 100)
+		// 	} else {
+		// 		console.log("没有token，即将跳转登录页");
+		// 		setTimeout(function() { //去登录
+		// 			uni.reLaunch({
+		// 				url: '/pages/login/login',
+		// 			});
+		// 		}, 100)
+		// 	}
+		// }
 	}
 </script>
 

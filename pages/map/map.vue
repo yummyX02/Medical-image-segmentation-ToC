@@ -2,7 +2,11 @@
 	<view class="container">
 		<map :latitude="latitude" :longitude="longitude" :scale="scale" :markers="marker" class="mapview">
 		</map>
-		<button>{{province}}{{city}}</button>
+		<!-- <button>{{province}}{{city}}</button> -->
+		<view class="toast">
+			<text>当前位置是：</text>
+			<text>{{province}}-{{city}}</text>
+		</view>
 	</view>
 </template>
 
@@ -50,16 +54,18 @@
 					uni.showToast({
 						title: '获取位置成功',
 						icon: 'success', // 提示图标，可选值：'success', 'loading', 'none'
-						duration: 2000, // 提示显示时间，单位毫秒
+						duration: 1000, // 提示显示时间，单位毫秒
 						mask: true, // 是否显示透明蒙层，防止触摸穿透
 						success: () => {
 							console.log('消息提示已显示');
 							// 等待3秒后返回上一级页面
 							setTimeout(() => {
+								uni.hideToast();
 								uni.navigateBack({
 									delta: 1, // 返回的页面数，1表示返回上一级
 									success: () => {
 										console.log('已返回上一级页面');
+										uni.hideToast();
 									},
 									fail: () => {
 										console.log('返回上一级页面失败');
@@ -94,17 +100,20 @@
 		height: 100vh;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		// justify-content: center;
+		align-items: center;
 
-		button {
-			margin-top: 20px;
+		.toast {
+			margin-top: 30px;
 			border: none;
-			background-color: #69aafc;
+			font-size: 20px;
+			padding: 10px;
+			border-bottom: 1px solid #0379ff;
 		}
 
 		.mapview {
 			width: 100%;
-			height: 500px;
+			height: 600px;
 		}
 	}
 </style>

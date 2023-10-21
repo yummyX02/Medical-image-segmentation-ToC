@@ -65,6 +65,13 @@
 			}
 
 		}, {
+			"path": "pages/platform/focus1",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
 			"path": "pages/personal/personal",
 			"style": {
 				"navigationBarTitleText": "",
@@ -84,7 +91,14 @@
 				"enablePullDownRefresh": false
 			}
 
-		}, {
+		},{
+			"path": "pages/message/chat",
+			"style": {
+				"navigationBarTitleText": "我的聊天",
+				"enablePullDownRefresh": false
+			}
+
+		},  {
 			"path": "pages/hospitalList/hospitalList",
 			"style": {
 				"navigationBarTitleText": "",

@@ -122,6 +122,34 @@
 			},
 			submit(){
 				//预约提交
+				uni.request({
+					url:'http://101.42.48.138:5000/reserve',
+					method:'POST',
+					header:{
+						'token':''
+					},
+					success: (res) =>{
+						console.log("预约",res);
+						if(res.data.status == 'success'){
+							console.log("进入");
+							uni.showModal({
+							    title: '提示',
+							    content: '预约成功!',
+							    success: function (res) {
+							        if (res.confirm) {
+							            console.log('用户点击确定');
+										uni.navigateTo({
+											url:'/pages/internetSuccess/internetSuccess'
+										})
+										// uni.navigateBack();
+							        } else if (res.cancel) {
+							            console.log('用户点击取消');
+							        }
+							    }
+							});
+						}
+					}
+				})
 			}
 		}
 	}

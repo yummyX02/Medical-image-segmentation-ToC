@@ -7,7 +7,7 @@
 			</view>
 			<view class="mid">
 				<u-icon name="search" color="#ebebeb" size="28" @click="search"></u-icon>
-				<u-input class="uinpt" placeholderStyle="font-size: 13px;" v-model="searchInfo" @confirm="onEnter"
+				<u-input class="uinpt" placeholderStyle="font-size: 13px;" v-model="searchInfo" 
 					placeholder="搜索医院名称" />
 			</view>
 			<view class="right" @click="navigatoSelCity">

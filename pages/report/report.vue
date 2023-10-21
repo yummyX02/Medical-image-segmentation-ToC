@@ -52,7 +52,7 @@
 			});
 			uni.request(
 			{
-				url:'http://localhost:5000/getdesc',
+				url:'http://101.42.48.138:5000/getdesc',
 				method:'POST',
 				data:{
 					username:this.username,
@@ -73,7 +73,8 @@
 
 <style lang="less">
 .container{
-
+	height: 100vh;
+	width: 100vw;
 	background-color: #f7f8ff;
 	.title {
 	  margin-left: 30px; /* 距离左边 15px */
