@@ -1,5 +1,6 @@
 <template>
 	<view class="container">
+		<uni-popup ref="popup" type="bottom">预约成功</uni-popup>
 		<view class="card-top">
 			<view class="doctor">
 				<view class="info-top">
@@ -121,6 +122,7 @@
 				this.selectedPatientIndex = this.selectedPatientIndex === index ? -1 : index;
 			},
 			submit(){
+				this.$refs.popup.open('top')
 				//预约提交
 				uni.request({
 					url:'http://101.42.48.138:5000/reserve',

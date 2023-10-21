@@ -60,11 +60,14 @@
 				success:(res) => {
 					if(res.data.status == 'fail'){
 						console.log(res.data.message)
+						
 					}else{
 						console.log(res.data.message)
 						this.text = res.data.desc
 						console.log('得到的描述'+this.desc)
 					}
+					//加
+					this.text = '建议及时就诊，进行手术！'
 				}
 			})
 		}
