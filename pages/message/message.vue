@@ -1,7 +1,7 @@
 <template>
 	<!-- //页面12 -->
 	<view class="container">
-		<div class="card" v-for="(item,index) in patients" :key="index">
+		<div class="card" v-for="(item,index) in patients" :key="index" @click="selectIndex(index)">
 			<div class="left">
 				<img src="../../static/patient.jpg" alt="" srcset="" style="width: 50px;height: 50px;">
 			</div>
@@ -43,6 +43,16 @@
 					
 				]
 			};
+		},
+		methods:{
+			selectIndex(index){
+				console.log(index);
+				uni.setStorageSync("chatIndex",index);
+				//跳转聊天室
+				uni.navigateTo({
+					url:"/pages/message/chat"
+				})
+			}
 		}
 	}
 </script>

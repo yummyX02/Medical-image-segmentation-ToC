@@ -45,6 +45,7 @@
 		methods: {
 			login() {
 				console.log(this.form);
+				console.log("denglu");
 					uni.request({
 						url:'http://101.42.48.138:5000/patient_login',
 						method:'POST',

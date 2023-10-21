@@ -94,7 +94,7 @@
 		},{
 			"path": "pages/message/chat",
 			"style": {
-				"navigationBarTitleText": "我的聊天",
+				"navigationBarTitleText": "在线咨询",
 				"enablePullDownRefresh": false
 			}
 
